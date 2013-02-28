@@ -28,15 +28,25 @@ android_library {
     ],
 
     srcs: ["src/**/*.java", 
-        "Blissify/src/**/*.java"],
+           "Blissify/src/**/*.java",
+           "koush/Widgets/Widgets/src/**/*.java",
+           "koush/Superuser/Superuser/src/**/*.java",
+           "src/com/android/settings/cyanogenmod/superuser/*.java",
+           ],
 
     aaptflags: ["--extra-packages com.blissroms.blissify",
                 "--extra-packages nl.joery.animatedbottombar",
-                "--extra-packages com.google.android.flexbox",],
+                "--extra-packages com.google.android.flexbox",
+                "--extra-packages com.koushikdutta.superuser",
+                "--extra-packages com.koushikdutta.widgets",
+                ],
 
     resource_dirs: ["res",
-                    "Blissify/res"
-    ],
+                    "Blissify/res",
+                    "koush/Widgets/WidgetsSample/res",
+                    "koush/Widgets/Widgets/res",
+                    "koush/Superuser/Superuser/res",
+				    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
