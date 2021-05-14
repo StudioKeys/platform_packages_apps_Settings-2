@@ -108,10 +108,6 @@
     <uses-permission android:name="android.permission.READ_DREAM_STATE" />
     <uses-permission android:name="android.permission.READ_DREAM_SUPPRESSION" />
 
-    <!-- Face Unlock -->
-    <uses-permission android:name="com.android.settings.FACE_UNLOCK"/>
-    <permission android:name="com.android.settings.FACE_UNLOCK" android:protectionLevel="signatureOrSystem"/>
-
     
 	<permission
 		android:name="android.permission.REQUEST_SUPERUSER"
@@ -3578,16 +3574,6 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.blissroms.blissify.Blissify" />
-        </activity>
-
-        <!-- Face unlock -->
-        <activity android:name="com.android.settings.custom.biometrics.face.FaceEnrollActivity"
-            android:permission="com.android.settings.FACE_UNLOCK"
-            android:theme="@style/Transparent">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.intent.action.FACE_ENROLL"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
         </activity>
 
         <!-- This is the longest AndroidManifest.xml ever. -->
