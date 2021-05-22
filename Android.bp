@@ -27,7 +27,7 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java", 
+    srcs: ["src/**/*.java",
            "Blissify/src/**/*.java",
            "koush/Widgets/Widgets/src/**/*.java",
            "koush/Superuser/Superuser/src/**/*.java",
