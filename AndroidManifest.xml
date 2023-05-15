@@ -124,6 +124,10 @@
     <!-- App lock -->
     <uses-permission android:name="android.permission.MANAGE_APP_LOCK" />
 
+    <!-- Face Unlock -->
+    <uses-permission android:name="com.android.settings.FACE_UNLOCK"/>
+    <permission android:name="com.android.settings.FACE_UNLOCK" android:protectionLevel="signatureOrSystem"/>
+
     <application
             android:name=".SettingsApplication"
             android:label="@string/settings_label"
@@ -4236,6 +4240,10 @@
                     <action android:name="android.settings.panel.action.VOLUME" />
                     <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
+                <intent-filter>
+                    <action android:name="android.settings.panel.action.MOBILE_DATA" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
         </activity>
 
         <activity android:name=".wifi.addappnetworks.AddAppNetworksActivity"
@@ -4601,6 +4609,38 @@
             android:excludeFromRecents="true"
             android:taskAffinity="com.android.settings.applock"
             android:launchMode="singleTask" />
+
+        <!-- Face unlock -->
+        <activity android:name="com.android.settings.custom.biometrics.face.FaceEnrollActivity"
+            android:permission="com.android.settings.FACE_UNLOCK"
+            android:theme="@style/Transparent"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.intent.action.FACE_ENROLL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Provide direct entry into Dev settings - Running Services -->
+        <activity android:name="Settings$DevRunningServicesActivity"
+                android:label="@string/runningservices_settings_title"
+                android:theme="@style/Theme.SubSettingsBase"
+                android:enabled="true"
+                android:exported="true"
+                android:excludeFromRecents="true"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.applications.RunningServices" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
 
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
