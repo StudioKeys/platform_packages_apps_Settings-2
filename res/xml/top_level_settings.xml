@@ -22,6 +22,7 @@
         android:layout="@layout/usercard"
         android:fragment="com.android.settings.users.UserSettings"
         android:key="top_level_usercard"
+        android:id="@+id/entity_header"
         android:order="-180" />        
 
     <com.android.settings.widget.HomepagePreference
